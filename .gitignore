@@ -71,5 +71,11 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Assets
+/[Aa]ssets/Kawaii Slimes
+/[Aa]ssets/AurynSky
+/[Aa]ssets/Kawaii Slimes.meta
+/[Aa]ssets/AurynSky.meta
+
 # Mac files
 .DS_Store
