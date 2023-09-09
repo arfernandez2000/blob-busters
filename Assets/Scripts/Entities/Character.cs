@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour, IDamageable, IMovable
+public abstract class Character : MonoBehaviour, IDamageable
 {
 
     #region PRIVATE_PROPERTIES
     protected int _maxHealth;
     protected int _health;
     protected float _movementSpeed;
+    protected float _mouseSensitivity;
 
     #endregion
 
@@ -27,14 +28,6 @@ public abstract class Character : MonoBehaviour, IDamageable, IMovable
     public void Die() {
         Destroy(gameObject);
     }
-
-    #endregion
-
-    #region IMOVEABLE
-
-    public float MovementSpeed => _movementSpeed;
-
-    public void Move(Vector3 direction) => transform.position += _movementSpeed * Time.deltaTime * direction;
 
     #endregion
 

@@ -82,6 +82,8 @@ crashlytics-build.properties
 /[Aa]ssets/AurynSky
 /[Aa]ssets/Kawaii Slimes.meta
 /[Aa]ssets/AurynSky.meta
+/[Aa]ssets/AddOns.meta
+/[Aa]ssets/AddOns
 
 # Mac files
 .DS_Store
