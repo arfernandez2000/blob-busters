@@ -8,8 +8,6 @@ public abstract class Character : MonoBehaviour, IDamageable
     #region PRIVATE_PROPERTIES
     protected int _maxHealth;
     protected int _health;
-    protected float _movementSpeed;
-    protected float _mouseSensitivity;
 
     #endregion
 
