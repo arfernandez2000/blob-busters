@@ -6,18 +6,18 @@ public abstract class Character : MonoBehaviour, IDamageable
 {
 
     #region PRIVATE_PROPERTIES
-    protected int _maxHealth;
-    protected int _health;
+    [SerializeField] protected float _maxHealth;
+    [SerializeField] protected float _health;
 
     #endregion
 
     #region IDAMAGEABLE
 
-    public int MaxHealth => _maxHealth;
-    public int Health => _health;    
+    public float MaxHealth => _maxHealth;
+    public float Health => _health;    
     
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
         _health -= damage;
 
         if (_health <= 0) Die();
