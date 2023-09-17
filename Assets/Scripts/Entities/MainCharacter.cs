@@ -84,5 +84,18 @@ public class MainCharacter : Character, IMovable, IJumpable
         
         if (Input.GetKeyDown(_attack)) _wand.Shoot();
     }
+
+    void OnCollisionEnter(Collision col) {
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag == "Enemy") {
+            TakeDamage(col.gameObject.GetComponent<Blob>().Damage);
+            Debug.Log("Muriendo: " + _health);
+        }
+        if (col.gameObject.tag == "PowerUp") {
+            _health += 10;
+            Debug.Log("Sano: " + _health);
+            Destroy(col.gameObject);
+        }
+    }
     #endregion
 }

@@ -10,17 +10,19 @@ public class SimpleSpell : MonoBehaviour, ISpell
 
     public float ManaCost => throw new System.NotImplementedException();
 
-    public float Lifetime => 3f;
+    public float Lifetime => _lifeTime;
 
     public float Cooldown => throw new System.NotImplementedException();
 
     #region PRIVATE_PROPERTIES
+
+    private float _lifeTime = 3f;
     
     #endregion
 
     public void Die()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
     }
 
     public void Travel() => transform.position += Vector3.forward * Time.deltaTime * Speed;
@@ -34,5 +36,7 @@ public class SimpleSpell : MonoBehaviour, ISpell
     void Update()
     {
         Travel();
+        _lifeTime -= Time.deltaTime;
+        if (_lifeTime <= 0) Die();
     }
 }
