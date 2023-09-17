@@ -46,7 +46,7 @@ public class MainCharacter : Character, IMovable, IJumpable
     
     public void Jump()
     {
-        if (controller.isGrounded && Input.GetKeyDown(_jump))
+        if (Input.GetKeyDown(_jump))
         {
             _jumpSpeed = Mathf.Sqrt(_jumpHeight * -2f * (gravity * gravityScale));
         }
