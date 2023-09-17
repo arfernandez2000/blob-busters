@@ -86,11 +86,14 @@ public class MainCharacter : Character, IMovable, IJumpable
     }
 
     void OnCollisionEnter(Collision col) {
-        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "Enemy") {
             TakeDamage(col.gameObject.GetComponent<Blob>().Damage);
             Debug.Log("Muriendo: " + _health);
         }
+    }
+
+    void OnTriggerEnter(Collider col) {
+        Debug.Log("POWERUP: " + col.gameObject.tag);
         if (col.gameObject.tag == "PowerUp") {
             _health += 10;
             Debug.Log("Sano: " + _health);
