@@ -83,6 +83,8 @@ crashlytics-build.properties
 /[Aa]ssets/AurynSky.meta
 /[Aa]ssets/AddOns.meta
 /[Aa]ssets/AddOns
+/[Aa]ssets/TextMesh Pro.meta
+/[Aa]ssets/TextMesh Pro
 
 # Mac files
 .DS_Store
