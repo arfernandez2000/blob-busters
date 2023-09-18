@@ -129,7 +129,7 @@ public class Blob : Character
 
             case SlimeAnimationState.Jump:
 
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump")) return;
+                // if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump")) return;
 
                 StopAgent();
                 SetFace(faces.jumpFace);
