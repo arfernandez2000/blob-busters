@@ -26,4 +26,21 @@ public class EventsManager : MonoBehaviour
         if (OnGameOver != null) OnGameOver(isVictory);
     }
     #endregion
+
+    #region UI_ELEMENTS
+    public event Action<float, float> OnCharacterLifeChange;
+
+    public void CharacterLifeChange(float currentLife, float maxLife) {
+        Debug.Log("VALORES");
+        Debug.Log(currentLife);
+        Debug.Log(maxLife);
+        if (OnCharacterLifeChange == null) {
+            Debug.Log("ES NULO");
+        }
+        if (OnCharacterLifeChange != null) {
+            Debug.Log("NO ES NULO");
+            OnCharacterLifeChange(currentLife, maxLife); 
+        }
+    }
+    #endregion
 }

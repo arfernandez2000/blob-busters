@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class MainCharacter : Character, IMovable, IJumpable
@@ -65,20 +66,12 @@ public class MainCharacter : Character, IMovable, IJumpable
         _health = _maxHealth;
         _movementSpeed = 10;
         _jumpHeight = 2f;
+        EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
         controller = GetComponent<CharacterController>();
     }
         
     // Update is called once per frame
-    void Update()
-    {
-        // Move forward
-        // if (Input.GetKey(_moveForward)) Move(Vector3.forward);
-        // // Move backward
-        // if (Input.GetKey(_moveBackward)) Move(-Vector3.forward);
-        // // Move left
-        // if (Input.GetKey(_moveLeft)) Move(-Vector3.right);
-        // // Move right
-        // if (Input.GetKey(_moveRight)) Move(Vector3.right);
+    void Update() {
         Move();
         Jump();
         
@@ -88,6 +81,7 @@ public class MainCharacter : Character, IMovable, IJumpable
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             TakeDamage(col.gameObject.GetComponent<Blob>().Damage);
+            EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
             Debug.Log("Muriendo: " + _health);
         }
     }
