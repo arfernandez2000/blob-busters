@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimpleSpell : MonoBehaviour, ISpell
 {
+    public Vector3 forward;
     public float Speed => 15;
 
     public float Damage => 10;
@@ -25,7 +26,11 @@ public class SimpleSpell : MonoBehaviour, ISpell
         Destroy(gameObject);
     }
 
-    public void Travel() => transform.position += Vector3.forward * Time.deltaTime * Speed;
+    public void Travel() {
+        // transform.position += Vector3.forward * Time.deltaTime * Speed;
+        transform.position += forward * Time.deltaTime * Speed;
+        Debug.Log(forward);
+    }
 
     // Start is called before the first frame update
     void Start()
