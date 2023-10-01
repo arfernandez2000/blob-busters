@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class MainCharacter : Character, IMovable, IJumpable
+public class MainCharacter : Character, IJumpable
 {
 
     #region PRIVATE_PROPERTIES
@@ -13,6 +13,7 @@ public class MainCharacter : Character, IMovable, IJumpable
     private float _jumpHeight;
     
     private float _mouseSensitivity;
+    private MovementController _movementController;
     #endregion
     
     #region KEY_BINDINGS
@@ -21,22 +22,26 @@ public class MainCharacter : Character, IMovable, IJumpable
     [SerializeField] private KeyCode _jump = KeyCode.Space;
     [SerializeField] private CharacterController controller;
     [SerializeField] private SimpleWand _wand;
+    [SerializeField] private KeyCode _moveForward = KeyCode.W;
+    [SerializeField] private KeyCode _moveBackward = KeyCode.S;
+    [SerializeField] private KeyCode _moveLeft = KeyCode.A;
+    [SerializeField] private KeyCode _moveRight = KeyCode.D;
+    #endregion
+
+    #region MOVEMENT_COMMAND
+    private CmdMovement _cmdMovement;
+
+    private void InitMovementCommands() {
+        _cmdMovement = new CmdMovement(_movementController);
+    }
+
     #endregion
 
     #region IMOVEABLE
 
     [SerializeField] public float MovementSpeed => _movementSpeed;
 
-
-    public void Move(){
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * MovementSpeed * Time.deltaTime);
-        controller.SimpleMove(Physics.gravity);
-    }
+    public void Move() => _cmdMovement.Do();
 
     #endregion
 
@@ -68,11 +73,16 @@ public class MainCharacter : Character, IMovable, IJumpable
         _jumpHeight = 2f;
         EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
         controller = GetComponent<CharacterController>();
+        _movementController = GetComponent<MovementController>();
+
+        InitMovementCommands();
     }
         
     // Update is called once per frame
-    void Update() {
-        Move();
+    void Update()
+    {
+        if (Input.GetKey(_moveForward) || Input.GetKey(_moveBackward) || Input.GetKey(_moveRight) || Input.GetKey(_moveLeft)) _cmdMovement.Do();
+        
         Jump();
         
         if (Input.GetKeyDown(_attack)) _wand.Shoot();
