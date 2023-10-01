@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class CmdMovement : ICommand
 {
-    private Transform _transform;
     private IMovable _movable;
-    private Vector3 _direction;
-    private float _speed;
-    private CharacterController _controller;
 
     public CmdMovement(IMovable movable) {
         _movable = movable;
