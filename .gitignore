@@ -85,6 +85,7 @@ crashlytics-build.properties
 /[Aa]ssets/AddOns
 /[Aa]ssets/TextMesh Pro.meta
 /[Aa]ssets/TextMesh Pro
+/[Aa]ssets/Sounds/*
 
 # Mac files
 .DS_Store
