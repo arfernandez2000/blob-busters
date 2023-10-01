@@ -10,7 +10,7 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-
+*.png
 .idea
 .vsconfig
 

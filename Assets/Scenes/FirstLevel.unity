@@ -8268,7 +8268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08351f370155c4fe0acdd17996146bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellPrefab: {fileID: 2931517948482705073, guid: f25ebdc04408f4bd686b22bd5038531d, type: 3}
+  _spellPrefab: {fileID: 9139995314340529936, guid: cd0075e9714d14d91b8b23e60d181a7b, type: 3}
   _spellContainer: {fileID: 557512376}
 --- !u!1 &1653616295 stripped
 GameObject:

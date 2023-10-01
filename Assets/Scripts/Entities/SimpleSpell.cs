@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimpleSpell : MonoBehaviour, ISpell
 {
     public Vector3 forward;
-    public float Speed => 15;
+    public float Speed => 30;
 
     public float Damage => 10;
 
