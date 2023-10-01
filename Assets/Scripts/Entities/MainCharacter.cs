@@ -71,7 +71,7 @@ public class MainCharacter : Character, IJumpable
         _health = _maxHealth;
         _movementSpeed = 10;
         _jumpHeight = 2f;
-        EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
+        // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
         controller = GetComponent<CharacterController>();
         _movementController = GetComponent<MovementController>();
 
@@ -91,7 +91,7 @@ public class MainCharacter : Character, IJumpable
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             TakeDamage(col.gameObject.GetComponent<Blob>().Damage);
-            EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
+            // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
             Debug.Log("Muriendo: " + _health);
         }
     }
