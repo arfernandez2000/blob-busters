@@ -10,16 +10,16 @@ public class EventsManager : MonoBehaviour
     #region UNITY_EVENTS
 
     private void Awake() {
-
-    }
-
-    private void Start() {
         Debug.Log("EVENT MANAGER!!!!");
         if (instance != null) {
             Debug.Log("DESTROYING EVENT MANAGER");
             Destroy(this);
         }
         instance = this;
+    }
+
+    private void Start() {
+        
     }
 
     #endregion
@@ -38,7 +38,6 @@ public class EventsManager : MonoBehaviour
         Debug.Log("VALORES");
         Debug.Log(currentLife);
         Debug.Log(maxLife);
-        Debug.Log(OnCharacterLifeChange.GetInvocationList().Length);
         if (OnCharacterLifeChange == null) {
             Debug.Log("ES NULO");
         }

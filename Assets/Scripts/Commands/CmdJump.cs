@@ -15,6 +15,7 @@ public class CmdJump : ICommand
         _controller = controller;
         _jump = jump;
         _jumpHeight = jumpHeight;
+        _controller.minMoveDistance = 0;
     }
 
     public void Do() {

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MainCharacter : Character
 {
@@ -54,7 +56,8 @@ public class MainCharacter : Character
     void Start()
     {
         _health = MaxHealth;
-        // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
+        Debug.Log(EventsManager.instance);
+        // EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
         controller = GetComponent<CharacterController>();
 
         InitMovementCommands();
@@ -73,7 +76,8 @@ public class MainCharacter : Character
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage));
-            // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
+            EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
+            Debug.Log(EventsManager.instance);
             Debug.Log("Muriendo: " + _health);
         }
     }
@@ -82,6 +86,7 @@ public class MainCharacter : Character
         Debug.Log("POWERUP: " + col.gameObject.tag);
         if (col.gameObject.tag == "PowerUp") {
             _health += 10;
+            EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
             Debug.Log("Sano: " + _health);
             Destroy(col.gameObject);
         }
