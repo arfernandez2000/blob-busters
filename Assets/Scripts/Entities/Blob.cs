@@ -196,7 +196,7 @@ public class Blob : Character
             // FlashRed();
             lastState = currentState;
             currentState = SlimeAnimationState.Damage;
-            TakeDamage(col.gameObject.GetComponent<ISpell>().Damage);
+            new CmdApplyDamage(this, col.gameObject.GetComponent<ISpell>().Damage).Do();
             col.gameObject.GetComponent<ISpell>().Die();
         }
     }

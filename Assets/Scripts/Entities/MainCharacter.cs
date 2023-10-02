@@ -29,10 +29,12 @@ public class MainCharacter : Character
     #region COMMANDS
     private CmdMovement _cmdMovement;
     private CmdJump _cmdJump;
+    private CmdShoot _cmdShoot;
 
     private void InitMovementCommands() {
         _cmdMovement = new CmdMovement(_movementController);
         _cmdJump = new CmdJump(_jumpController);
+        _cmdShoot = new CmdShoot(_wand);
     }
 
     #endregion
@@ -44,7 +46,6 @@ public class MainCharacter : Character
     {
         _maxHealth = 100;
         _health = _maxHealth;
-        // _jumpHeight = 2f;
         // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
         controller = GetComponent<CharacterController>();
         _movementController = GetComponent<MovementController>();
@@ -60,12 +61,12 @@ public class MainCharacter : Character
         
         _cmdJump.Do();
         
-        if (Input.GetKeyDown(_attack)) _wand.Shoot();
+        if (Input.GetKeyDown(_attack)) _cmdShoot.Do();
     }
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
-            TakeDamage(col.gameObject.GetComponent<Blob>().Damage);
+            new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage).Do();
             // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
             Debug.Log("Muriendo: " + _health);
         }
