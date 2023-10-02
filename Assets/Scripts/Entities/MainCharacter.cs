@@ -8,10 +8,12 @@ public class MainCharacter : Character
 
     #region PRIVATE_PROPERTIES
     private int _mana = 100;
-    
     private float _mouseSensitivity;
-    private MovementController _movementController;
-    private JumpController _jumpController;
+    public CharacterStats Stats => _characterStats;
+    [SerializeField] private CharacterStats _characterStats;
+    public float MaxHealth => _characterStats.MaxHealth;
+    public float JumpHeight => _characterStats.JumpHeight;
+    public float MovementSpeed => _characterStats.MovementSpeed;
     #endregion
     
     #region KEY_BINDINGS
@@ -32,8 +34,8 @@ public class MainCharacter : Character
     private CmdShoot _cmdShoot;
 
     private void InitMovementCommands() {
-        _cmdMovement = new CmdMovement(_movementController);
-        _cmdJump = new CmdJump(_jumpController);
+        _cmdMovement = new CmdMovement(transform, controller, MovementSpeed);
+        _cmdJump = new CmdJump(controller, _jump, JumpHeight);
         _cmdShoot = new CmdShoot(_wand);
     }
 
@@ -51,12 +53,9 @@ public class MainCharacter : Character
     // Start is called before the first frame update
     void Start()
     {
-        _maxHealth = 100;
-        _health = _maxHealth;
+        _health = MaxHealth;
         // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
         controller = GetComponent<CharacterController>();
-        _movementController = GetComponent<MovementController>();
-        _jumpController = GetComponent<JumpController>();
 
         InitMovementCommands();
     }
