@@ -47,7 +47,7 @@ public class MainCharacter : Character
     }
 
     #region UNITY_EVENTS
-
+ 
     // Start is called before the first frame update
     void Start()
     {

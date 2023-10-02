@@ -31,7 +31,6 @@ public class SimpleWand : MonoBehaviour, IWand
 
     #region IWAND_METHODS
     public void Shoot() {
-        Debug.Log("estoy shooting!");
         GameObject bullet = Instantiate(_spellPrefab, transform.position, transform.rotation, SpellContainer);
         bullet.GetComponent<SimpleSpell>().forward = transform.parent.forward;
     }

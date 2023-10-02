@@ -27,9 +27,7 @@ public class SimpleSpell : MonoBehaviour, ISpell
     }
 
     public void Travel() {
-        // transform.position += Vector3.forward * Time.deltaTime * Speed;
         transform.position += forward * Time.deltaTime * Speed;
-        Debug.Log(forward);
     }
 
     // Start is called before the first frame update

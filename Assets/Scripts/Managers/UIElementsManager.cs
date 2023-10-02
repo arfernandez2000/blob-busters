@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,6 @@ public class UIElementsManager : MonoBehaviour
     {
         Debug.Log("ARRANCANDO");
         EventsManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
-
     }
     #endregion
 }

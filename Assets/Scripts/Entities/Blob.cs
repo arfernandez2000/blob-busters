@@ -86,12 +86,10 @@ public class Blob : Character
 
                 if (Vector3.Distance(transform.position, mainCharacter.position) < 15f) {
                     currentState = SlimeAnimationState.Follow;
-                    Debug.Log("Te sigo bitch");
                     return;
                 }
 
                 if (walkType == WalkType.ToOrigin) {
-                    Debug.Log("que hago aca");
                     agent.SetDestination(originPos);
                     // Debug.Log("WalkToOrg");
                     SetFace(faces.WalkFace);
@@ -148,7 +146,7 @@ public class Blob : Character
                 agent.SetDestination(mainCharacter.position);
                 if (Vector3.Distance(transform.position, mainCharacter.position) >= 3f) {
                     currentState = SlimeAnimationState.Follow;
-                    Debug.Log("fuiste boleta");
+        
                 }
                 break;
             
@@ -163,11 +161,9 @@ public class Blob : Character
                 animator.SetFloat("Speed", agent.velocity.magnitude);
                 if (agent.remainingDistance < agent.stoppingDistance + 3f) {
                     currentState = SlimeAnimationState.Attack;
-                    Debug.Log("so boleta");
                 }            
                 if (agent.remainingDistance > agent.stoppingDistance + 25f) {
                     currentState = SlimeAnimationState.Walk;
-                    Debug.Log("chau chau adios");
                 }
 
                 break;
