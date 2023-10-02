@@ -11,6 +11,7 @@
 /[Uu]ser[Ss]ettings/
 
 *.png
+*.png.meta
 .idea
 .vsconfig
 
