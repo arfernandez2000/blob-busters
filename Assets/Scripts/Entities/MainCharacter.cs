@@ -39,6 +39,13 @@ public class MainCharacter : Character
 
     #endregion
 
+    private void Jump() {
+        if (Input.GetKeyDown(_jump)) 
+            EventQueueManager.instance.AddCommand(_cmdJump);
+        else
+            _cmdJump.Do();
+    }
+
     #region UNITY_EVENTS
 
     // Start is called before the first frame update
@@ -55,18 +62,18 @@ public class MainCharacter : Character
     }
         
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(_moveForward) || Input.GetKey(_moveBackward) || Input.GetKey(_moveRight) || Input.GetKey(_moveLeft)) _cmdMovement.Do();
+        if (Input.GetKey(_moveForward) || Input.GetKey(_moveBackward) || Input.GetKey(_moveRight) || Input.GetKey(_moveLeft)) EventQueueManager.instance.AddCommand(_cmdMovement);
         
-        _cmdJump.Do();
+        Jump();
         
-        if (Input.GetKeyDown(_attack)) _cmdShoot.Do();
+        if (Input.GetKeyDown(_attack)) EventQueueManager.instance.AddCommand(_cmdShoot);
     }
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
-            new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage).Do();
+            EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage));
             // EventsManager.instance.CharacterLifeChange(_health, _maxHealth);
             Debug.Log("Muriendo: " + _health);
         }
