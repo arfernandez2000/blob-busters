@@ -4910,7 +4910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582815c86271a47e89bb9f92218cb56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  stats: {fileID: 0}
   _health: 100
   _characterStats: {fileID: 11400000, guid: 95facd6dfac084989853ddbe807c3393, type: 2}
   _attack: 323
@@ -8528,9 +8528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdc082cfaa104447952a73c226b26d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  stats: {fileID: 0}
   _health: 50
-  damage: 5
+  _enemyStats: {fileID: 11400000, guid: 97ec84bf2e0984b0db7a7bd3f80ed972, type: 2}
   SkinnedMeshRenderer: {fileID: 784883817}
   faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
   SmileBody: {fileID: 784883815}

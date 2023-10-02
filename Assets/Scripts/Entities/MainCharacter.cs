@@ -55,6 +55,8 @@ public class MainCharacter : Character
     // Start is called before the first frame update
     void Start()
     {
+        base.stats = _characterStats;
+        base.Start();
         _health = MaxHealth;
         Debug.Log(EventsManager.instance);
         // EventsManager.instance.CharacterLifeChange(_health, MaxHealth);

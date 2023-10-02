@@ -6,10 +6,14 @@ public enum SlimeAnimationState { Idle,Walk,Jump,Attack,Damage,Follow}
 
 public class Blob : Character
 {
+    #region PRIVATE_PROPERTIES
+    public EnemyStats Stats => _enemyStats;
+    [SerializeField] private EnemyStats _enemyStats;
+    #endregion
     private float onHitFlashTime = 0.2f;
     Color origionalColor;
-    public float Damage => damage;
-    [SerializeField] protected float damage = 5f;
+    public float Damage => _enemyStats.Damage;
+    // [SerializeField] protected float damage = 5f;
     [SerializeField] private SkinnedMeshRenderer SkinnedMeshRenderer;
 
     [SerializeField] private Face faces;
@@ -40,6 +44,8 @@ public class Blob : Character
         originPos = transform.position;
         faceMaterial = SmileBody.GetComponent<Renderer>().materials[1];
         walkType = WalkType.Patroll;
+        base.stats = _enemyStats;
+        base.Start();
     }
 
     public void WalkToNextDestination()
