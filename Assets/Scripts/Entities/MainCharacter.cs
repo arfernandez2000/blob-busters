@@ -52,22 +52,17 @@ public class MainCharacter : Character
 
     #region UNITY_EVENTS
  
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         base.stats = _characterStats;
         base.Start();
         _health = MaxHealth;
         Debug.Log(EventsManager.instance);
-        // EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
         controller = GetComponent<CharacterController>();
 
         InitMovementCommands();
     }
         
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (Input.GetKey(_moveForward) || Input.GetKey(_moveBackward) || Input.GetKey(_moveRight) || Input.GetKey(_moveLeft)) EventQueueManager.instance.AddCommand(_cmdMovement);
         
         Jump();

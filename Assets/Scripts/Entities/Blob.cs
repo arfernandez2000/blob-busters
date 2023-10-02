@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public enum SlimeAnimationState { Idle,Walk,Jump,Attack,Damage,Follow}
+public enum SlimeAnimationState { Idle,Walk,Jump,Attack,Damage,Follow,Dying }
 
 public class Blob : Character
 {
@@ -73,9 +74,14 @@ public class Blob : Character
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         switch (currentState)
         {
+            case SlimeAnimationState.Dying:
+                transform.GetChild(0).transform.Rotate(Vector3.forward.normalized, 30f * Time.deltaTime);
+                transform.GetChild(0).transform.Rotate(Vector3.down.normalized, 30f * Time.deltaTime);
+                return;
+
             case SlimeAnimationState.Idle:
                 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) return;
@@ -202,7 +208,6 @@ public class Blob : Character
             col.gameObject.GetComponent<ISpell>().Die();
         }
     }
-
     private void StopAgent()
     {
         agent.isStopped = true;
@@ -218,5 +223,10 @@ public class Blob : Character
         transform.position = position;
         agent.nextPosition = transform.position;
     }
-    
+
+    public override void Die() {
+        currentState = SlimeAnimationState.Dying;
+        animator.enabled = false;
+        Destroy(gameObject, 2f);
+    }
 }

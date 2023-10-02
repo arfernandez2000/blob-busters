@@ -24,7 +24,7 @@ public abstract class Character : MonoBehaviour, IDamageable
         if (_health <= 0) Die();
     }
 
-    public void Die() {
+    public virtual void Die() {
         Debug.Log($"{name} died");
 
         if (name.Equals("Main Character")) EventsManager.instance.EventGameOver(false);
