@@ -26,9 +26,10 @@ public abstract class Character : MonoBehaviour, IDamageable
     public void Die() {
         Debug.Log($"{name} died");
 
-        if (name.Equals("MainCharacter")) EventsManager.instance.EventGameOver(true);
-
-        Destroy(gameObject);
+        if (name.Equals("Main Character")) EventsManager.instance.EventGameOver(false);
+        else {
+            Destroy(gameObject);
+        }
     }
 
     #endregion

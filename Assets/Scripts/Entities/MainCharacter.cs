@@ -62,7 +62,7 @@ public class MainCharacter : Character
     }
         
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(_moveForward) || Input.GetKey(_moveBackward) || Input.GetKey(_moveRight) || Input.GetKey(_moveLeft)) EventQueueManager.instance.AddCommand(_cmdMovement);
         
@@ -85,6 +85,11 @@ public class MainCharacter : Character
             _health += 10;
             Debug.Log("Sano: " + _health);
             Destroy(col.gameObject);
+        }
+
+        if (col.gameObject.tag == "EndGame") {
+            Debug.Log("Choco con el cofre");
+            EventsManager.instance.EventGameOver(true);
         }
     }
     #endregion

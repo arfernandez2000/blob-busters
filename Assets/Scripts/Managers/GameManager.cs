@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,8 +23,8 @@ public class GameManager : MonoBehaviour
         _isGameOver = true;
         _isVictory = isVictory;
 
-        // _gameOverMessage.text = isVictory ? "VICTORY" : "GAME OVER";
-        // _gameOverMessage.color = isVictory ? Color.cyan : Color.red;
+        SceneManager.LoadScene(_isVictory? 2:3, LoadSceneMode.Single);
+
     }
     #endregion
 }
