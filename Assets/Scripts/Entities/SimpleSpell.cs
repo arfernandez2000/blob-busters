@@ -7,7 +7,7 @@ public class SimpleSpell : MonoBehaviour, ISpell
     public Vector3 forward;
     public float Speed => 30;
 
-    public float Damage => 10;
+    [SerializeField] public float Damage => 10;
 
     public float ManaCost => throw new System.NotImplementedException();
 

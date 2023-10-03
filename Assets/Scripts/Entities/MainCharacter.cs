@@ -9,8 +9,11 @@ public class MainCharacter : Character
 {
 
     #region PRIVATE_PROPERTIES
-    private int _mana = 100;
+    private float _mana = 100;
+    private float maxMana = 100;
     private float _mouseSensitivity;
+    private float timeBtwShots = 2;
+    private float timeOfLastShot = 0;
     public CharacterStats Stats => _characterStats;
     [SerializeField] private CharacterStats _characterStats;
     public float MaxHealth => _characterStats.MaxHealth;
@@ -67,7 +70,17 @@ public class MainCharacter : Character
         
         Jump();
         
-        if (Input.GetKeyDown(_attack)) EventQueueManager.instance.AddCommand(_cmdShoot);
+        float spellDamage = _wand.SpellPrefab.GetComponent<SimpleSpell>().Damage;
+        if (Input.GetKeyDown(_attack)) {
+            if (_mana > spellDamage && Time.time - timeOfLastShot >= timeBtwShots) {
+                _mana -= spellDamage;
+                Debug.Log("MANA: " + _mana);
+                EventQueueManager.instance.AddCommand(_cmdShoot);
+                EventsManager.instance.SpellCast(_mana, maxMana);
+                timeOfLastShot = Time.time;
+            } 
+        }
+        
     }
 
     void OnCollisionEnter(Collision col) {
