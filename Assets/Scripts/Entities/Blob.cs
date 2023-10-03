@@ -32,11 +32,13 @@ public class Blob : Character
     private bool move;
     private Material faceMaterial;
     private Vector3 originPos;
-
     private SlimeAnimationState lastState;
-
     public enum WalkType { Patroll ,ToOrigin }
     private WalkType walkType;
+    Vector3 startScale;
+    public float ShrinkDuration = 2.5f;
+    public Vector3 TargetScale = Vector3.one * 0.5f;
+    float t = 0;
     void Start()
     {
         GameObject meshRenderer = transform.Find("MeshRenderer").gameObject;
@@ -45,6 +47,8 @@ public class Blob : Character
         originPos = transform.position;
         faceMaterial = SmileBody.GetComponent<Renderer>().materials[1];
         walkType = WalkType.Patroll;
+        startScale = transform.localScale;
+        t = 0;
         base.stats = _enemyStats;
         base.Start();
     }
@@ -80,6 +84,10 @@ public class Blob : Character
             case SlimeAnimationState.Dying:
                 transform.GetChild(0).transform.Rotate(Vector3.forward.normalized, 30f * Time.deltaTime);
                 transform.GetChild(0).transform.Rotate(Vector3.down.normalized, 30f * Time.deltaTime);
+
+                t += Time.deltaTime / ShrinkDuration;
+                Vector3 newScale = Vector3.Lerp(startScale, TargetScale, t);
+                transform.localScale = newScale;
                 return;
 
             case SlimeAnimationState.Idle:
@@ -227,6 +235,6 @@ public class Blob : Character
     public override void Die() {
         currentState = SlimeAnimationState.Dying;
         animator.enabled = false;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2.5f);
     }
 }
