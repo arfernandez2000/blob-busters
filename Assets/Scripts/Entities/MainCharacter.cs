@@ -11,6 +11,7 @@ public class MainCharacter : Character
     #region PRIVATE_PROPERTIES
     private float _mana = 100;
     private float maxMana = 100;
+    private float manaRestoreInterval = 1;
     private float manaRestoreRate = 5;
     private float _mouseSensitivity;
     private float timeBtwShots = 0.2f;
@@ -70,7 +71,7 @@ public class MainCharacter : Character
         Debug.Log(EventsManager.instance);
         controller = GetComponent<CharacterController>();
 
-        InvokeRepeating("RestoreMana", 4f, 4f);
+        InvokeRepeating("RestoreMana", manaRestoreInterval, manaRestoreInterval);
         InitMovementCommands();
     }
         
