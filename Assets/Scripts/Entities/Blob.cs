@@ -179,7 +179,7 @@ public class Blob : Character
                 agent.SetDestination(mainCharacter.position);
                 SetFace(faces.WalkFace);
                 animator.SetFloat("Speed", agent.velocity.magnitude);
-                if (agent.remainingDistance < agent.stoppingDistance + 3f) {
+                if (agent.remainingDistance < agent.stoppingDistance + 2f) {
                     currentState = SlimeAnimationState.Attack;
                 }            
                 if (agent.remainingDistance > agent.stoppingDistance + 25f) {

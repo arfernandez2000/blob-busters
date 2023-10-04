@@ -4812,7 +4812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582815c86271a47e89bb9f92218cb56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 95facd6dfac084989853ddbe807c3393, type: 2}
   _health: 100
   _characterStats: {fileID: 11400000, guid: 95facd6dfac084989853ddbe807c3393, type: 2}
   _soundStats: {fileID: 11400000, guid: 5a4b3f1c7ec2246ca8175dd5fa1999b7, type: 2}
@@ -11389,6 +11389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8597687522039721517, guid: d0935360096884386acce551b3a8367c, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 97ec84bf2e0984b0db7a7bd3f80ed972, type: 2}
     - target: {fileID: 8597687522039721517, guid: d0935360096884386acce551b3a8367c, type: 3}
       propertyPath: mainCharacter
       value: 
