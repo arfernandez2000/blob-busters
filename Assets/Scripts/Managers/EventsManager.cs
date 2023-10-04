@@ -43,4 +43,18 @@ public class EventsManager : MonoBehaviour
         OnSpellCast?.Invoke(currentMana, maxMana);
     }
     #endregion
+
+    #region SOUNDS
+    public event Action<AudioSource> OnSoundEffect;
+
+    public void SoundEffect(AudioSource audio) {
+        Debug.Log("Entro al coin sound effect del event manager");
+        if(OnSoundEffect != null)
+            OnSoundEffect(audio);
+        else
+            Debug.Log("ES FUCKING NULL");
+    }
+
+    #endregion
+
 }

@@ -97,8 +97,9 @@ public class MainCharacter : Character
         if (col.gameObject.tag == "PowerUp") {
             _health += 10;
             EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
+            EventsManager.instance.SoundEffect(col.gameObject.GetComponent<AudioSource>());
             Debug.Log("Sano: " + _health);
-            Destroy(col.gameObject);
+            // Destroy(col.gameObject);
         }
 
         if (col.gameObject.tag == "EndGame") {

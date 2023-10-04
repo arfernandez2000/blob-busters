@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         EventsManager.instance.OnGameOver += OnGameOver;
-        // _gameOverMessage.text = string.Empty;
     }
     #endregion
 
