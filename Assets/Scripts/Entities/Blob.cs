@@ -26,6 +26,7 @@ public class Blob : Character
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private Transform mainCharacter;
     [SerializeField] private int damType;
+    [SerializeField] private AudioSource _audioSource;
 
     private int m_CurrentWaypointIndex;
 
@@ -214,6 +215,7 @@ public class Blob : Character
             currentState = SlimeAnimationState.Damage;
             EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<ISpell>().Damage));
             col.gameObject.GetComponent<ISpell>().Die();
+            EventsManager.instance.SoundEffect(_audioSource.clip);
         }
     }
     private void StopAgent()

@@ -18,6 +18,7 @@ public class SoundEffectManager : MonoBehaviour
     #region EVENT_ACTIONS
     private void OnSoundEffect(AudioClip clip)
     {
+        _audioSource.volume = 0.5f;
         _audioSource.PlayOneShot(clip);
     }
     #endregion
