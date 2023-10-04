@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundEffectManager : MonoBehaviour
 {
-    #region Unity_Events
+    private AudioSource _audioSource;
+    #region UNITY_EVENTS
     // Start is called before the first frame update
     void Start()
     {
         EventsManager.instance.OnSoundEffect += OnSoundEffect;
+        _audioSource = GetComponent<AudioSource>();
     }
     #endregion
 
     #region EVENT_ACTIONS
-    private void OnSoundEffect(AudioSource audio)
+    private void OnSoundEffect(AudioClip clip)
     {
-        Debug.Log("En Sound Effect Manager: " + audio.clip);
-        Debug.Log(audio == null);
-        audio.PlayOneShot(audio.clip);
+        _audioSource.PlayOneShot(clip);
     }
     #endregion
 }

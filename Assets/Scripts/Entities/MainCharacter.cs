@@ -21,6 +21,10 @@ public class MainCharacter : Character
     public float MaxHealth => _characterStats.MaxHealth;
     public float JumpHeight => _characterStats.JumpHeight;
     public float MovementSpeed => _characterStats.MovementSpeed;
+    
+    public SoundStats SoundStats => _soundStats;
+    [SerializeField] private SoundStats _soundStats;
+    public AudioClip Coin => _soundStats.Coin;
     #endregion
     
     #region KEY_BINDINGS
@@ -106,9 +110,8 @@ public class MainCharacter : Character
         if (col.gameObject.tag == "PowerUp") {
             _health += 10;
             EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
-            EventsManager.instance.SoundEffect(col.gameObject.GetComponent<AudioSource>());
-            Debug.Log("Sano: " + _health);
-            // Destroy(col.gameObject);
+            EventsManager.instance.SoundEffect(Coin);
+            Destroy(col.gameObject);
         }
 
         if (col.gameObject.tag == "EndGame") {

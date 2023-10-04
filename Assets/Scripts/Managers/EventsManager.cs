@@ -45,9 +45,9 @@ public class EventsManager : MonoBehaviour
     #endregion
 
     #region SOUNDS
-    public event Action<AudioSource> OnSoundEffect;
+    public event Action<AudioClip> OnSoundEffect;
 
-    public void SoundEffect(AudioSource audio) {
+    public void SoundEffect(AudioClip audio) {
         Debug.Log("Entro al coin sound effect del event manager");
         if(OnSoundEffect != null)
             OnSoundEffect(audio);
