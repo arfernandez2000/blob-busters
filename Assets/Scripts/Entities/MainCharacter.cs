@@ -11,8 +11,9 @@ public class MainCharacter : Character
     #region PRIVATE_PROPERTIES
     private float _mana = 100;
     private float maxMana = 100;
+    private float manaRestoreRate = 5;
     private float _mouseSensitivity;
-    private float timeBtwShots = 2;
+    private float timeBtwShots = 0.2f;
     private float timeOfLastShot = 0;
     public CharacterStats Stats => _characterStats;
     [SerializeField] private CharacterStats _characterStats;
@@ -53,6 +54,13 @@ public class MainCharacter : Character
             _cmdJump.Do();
     }
 
+    private void RestoreMana() {
+        if (_mana < maxMana) {
+            _mana += manaRestoreRate;
+            EventsManager.instance.SpellCast(_mana, maxMana);
+        }
+    }
+
     #region UNITY_EVENTS
  
     void Start() {
@@ -62,6 +70,7 @@ public class MainCharacter : Character
         Debug.Log(EventsManager.instance);
         controller = GetComponent<CharacterController>();
 
+        InvokeRepeating("RestoreMana", 4f, 4f);
         InitMovementCommands();
     }
         
@@ -74,7 +83,6 @@ public class MainCharacter : Character
         if (Input.GetKeyDown(_attack)) {
             if (_mana > spellDamage && Time.time - timeOfLastShot >= timeBtwShots) {
                 _mana -= spellDamage;
-                Debug.Log("MANA: " + _mana);
                 EventQueueManager.instance.AddCommand(_cmdShoot);
                 EventsManager.instance.SpellCast(_mana, maxMana);
                 timeOfLastShot = Time.time;
