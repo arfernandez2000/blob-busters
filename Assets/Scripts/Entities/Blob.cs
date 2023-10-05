@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public enum SlimeAnimationState { Idle,Walk,Jump,Attack,Damage,Follow,Dying }
@@ -50,6 +51,7 @@ public class Blob : Character
         walkType = WalkType.Patroll;
         startScale = transform.localScale;
         t = 0;
+        mainCharacter = GameObject.FindGameObjectWithTag("Player").transform;
         base.stats = _enemyStats;
         base.Start();
     }
