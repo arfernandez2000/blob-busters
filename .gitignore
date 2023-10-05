@@ -19,6 +19,10 @@
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
+/Assets/Fantasy*
+/Assets/Polytope*
+/Assets/Scenes/FirstLevel/NavMesh.asset
+/Assets/Scenes/FirstLevel/NavMesh.asset.meta
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
