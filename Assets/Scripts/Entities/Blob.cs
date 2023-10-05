@@ -27,7 +27,7 @@ public class Blob : Character
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private Transform mainCharacter;
     [SerializeField] private int damType;
-    [SerializeField] private AudioSource _audioSource;
+    private AudioSource _audioSource;
 
     private int m_CurrentWaypointIndex;
 
@@ -52,6 +52,7 @@ public class Blob : Character
         startScale = transform.localScale;
         t = 0;
         mainCharacter = GameObject.FindGameObjectWithTag("Player").transform;
+        _audioSource = GetComponent<AudioSource>();
         base.stats = _enemyStats;
         base.Start();
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33088221510746090}
   - component: {fileID: 23772034789106490}
   - component: {fileID: 1323343561045926229}
+  - component: {fileID: -7932928536310217131}
   m_Layer: 0
   m_Name: ForestTreeDShort
   m_TagString: Untagged
@@ -106,3 +107,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7f45a4e3a86ce4b4391131e440bf9e5e, type: 3}
+--- !u!136 &-7932928536310217131
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398384037247820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8282256
+  m_Height: 1.8279172
+  m_Direction: 1
+  m_Center: {x: -0.00000014901161, y: 0.9278216, z: 0.018611878}

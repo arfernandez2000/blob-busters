@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33241887433301832}
   - component: {fileID: 23539987805946322}
   - component: {fileID: 6193167368903372613}
+  - component: {fileID: 1820821221000559424}
   m_Layer: 0
   m_Name: ForestTreeAppleTall
   m_TagString: Untagged
@@ -106,3 +107,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 74836e1c1b626dc41a8fb4207f7026b8, type: 3}
+--- !u!136 &1820821221000559424
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478007673441398}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9035135
+  m_Height: 2.934407
+  m_Direction: 1
+  m_Center: {x: -0.004302621, y: 1.4810663, z: -0.011596203}

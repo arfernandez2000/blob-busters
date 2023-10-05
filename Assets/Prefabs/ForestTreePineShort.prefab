@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33235111210149352}
   - component: {fileID: 23874696224731434}
   - component: {fileID: -2617442365571115481}
+  - component: {fileID: 3640373244527474805}
   m_Layer: 0
   m_Name: ForestTreePineShort
   m_TagString: Untagged
@@ -106,3 +107,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 54e159d3356cea14996fb2dc32d85269, type: 3}
+--- !u!136 &3640373244527474805
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852941587909970}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8710852
+  m_Height: 2.3236728
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.10731715, z: -0.00000011920929}
