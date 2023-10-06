@@ -21,6 +21,7 @@ public class MainCharacter : Character
     public float MaxHealth => _characterStats.MaxHealth;
     public float JumpHeight => _characterStats.JumpHeight;
     public float MovementSpeed => _characterStats.MovementSpeed;
+    [SerializeField] private AudioSource audioSource;
     #endregion
     
     #region KEY_BINDINGS
@@ -96,6 +97,7 @@ public class MainCharacter : Character
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage));
+            EventsManager.instance.SoundEffect(audioSource.clip);
         }
     }
 
