@@ -96,9 +96,6 @@ public class MainCharacter : Character
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage));
-            EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
-            Debug.Log(EventsManager.instance);
-            Debug.Log("Muriendo: " + _health);
         }
     }
 
@@ -111,7 +108,6 @@ public class MainCharacter : Character
         }
 
         if (col.gameObject.tag == "EndGame") {
-            Debug.Log("Choco con el cofre");
             EventsManager.instance.EventGameOver(true);
         }
     }

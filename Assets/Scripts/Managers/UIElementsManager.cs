@@ -12,7 +12,12 @@ public class UIElementsManager : MonoBehaviour
     [SerializeField] private Image _manaBar;
     #endregion
     private void OnCharacterLifeChange(float currentLife, float maxLife) {
+        Debug.Log("cambiando el fillAmount");
+        Debug.Log(currentLife);
+        Debug.Log(maxLife);
+        Debug.Log(_lifebar.fillAmount);
         _lifebar.fillAmount = currentLife / maxLife;
+        Debug.Log(_lifebar.fillAmount);
     }
 
     private void OnSpellCast(float currentMana, float maxMana) {

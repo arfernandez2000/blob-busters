@@ -20,7 +20,9 @@ public abstract class Character : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage) {
         _health -= damage;
-
+        if (gameObject.CompareTag("Player")) {
+            EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
+        }
         if (_health <= 0) Die();
     }
 
