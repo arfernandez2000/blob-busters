@@ -65,6 +65,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8054457675579981288}
   m_SourcePrefab: {fileID: 100100000, guid: 200be9953d192cd48a8b41a5db3fd1bf, type: 3}
+--- !u!23 &2508848207381246418 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 200be9953d192cd48a8b41a5db3fd1bf, type: 3}
+  m_PrefabInstance: {fileID: 2508848207383407026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2508848207383441170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 200be9953d192cd48a8b41a5db3fd1bf, type: 3}
@@ -96,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 8054457675579981288}
-  _healthRecovery: 10
-  _meshRenderer: {fileID: 0}
+  _healthRecovery: 20
+  _meshRenderer: {fileID: 2508848207381246418}
 --- !u!64 &7630528440957973546
 MeshCollider:
   m_ObjectHideFlags: 0

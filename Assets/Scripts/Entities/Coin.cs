@@ -19,6 +19,7 @@ public class Coin : MonoBehaviour
             Debug.Log("Coin picked up");
             EventsManager.instance.SoundEffect(audioSource.clip);
             _meshRenderer.enabled = false;
+            transform.gameObject.GetComponent<Collider>().enabled = false;
             Destroy(gameObject, audioSource.clip.length);
         }
     }

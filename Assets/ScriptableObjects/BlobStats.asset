@@ -15,4 +15,4 @@ MonoBehaviour:
   _stats:
     _maxHealth: 50
   _enemyStats:
-    _damage: 5
+    _damage: 10
