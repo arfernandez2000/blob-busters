@@ -19,14 +19,14 @@ public class CmdJump : ICommand
     }
 
     public void Do() {
-        if (Input.GetKeyDown(_jump) && _controller.isGrounded) {
+        if (_controller.isGrounded) {
             _jumpSpeed = Mathf.Sqrt(_jumpHeight * -2f * (_gravity * _gravityScale));
+            UpdateSpeed();
         }
+    }
+
+    public void UpdateSpeed() {
         _jumpSpeed += _gravity * _gravityScale * Time.deltaTime;
         _controller.Move(new Vector3(0, _jumpSpeed, 0) * Time.deltaTime);
     }
-
-    // public void Undo() {
-
-    // }
 }

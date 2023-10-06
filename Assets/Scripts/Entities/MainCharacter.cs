@@ -49,10 +49,11 @@ public class MainCharacter : Character
     #endregion
 
     private void Jump() {
-        if (Input.GetKeyDown(_jump)) 
+        if (Input.GetKeyDown(_jump)) {
             EventQueueManager.instance.AddCommand(_cmdJump);
+        }
         else
-            _cmdJump.Do();
+            _cmdJump.UpdateSpeed();
     }
 
     private void RestoreMana() {
