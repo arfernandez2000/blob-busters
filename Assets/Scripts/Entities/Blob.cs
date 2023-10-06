@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using UnityEngine;
 
 public enum SlimeAnimationState { Idle,Walk,Jump,Attack,Damage,Follow,Dying }
