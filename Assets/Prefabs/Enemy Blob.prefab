@@ -373,7 +373,6 @@ MonoBehaviour:
   - {fileID: 0}
   mainCharacter: {fileID: 3370098159080105560, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
   damType: 0
-  _audioSource: {fileID: 0}
   ShrinkDuration: 2.5
   TargetScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!23 &8723583613305968877
@@ -427,7 +426,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f8dc7e05604f840c4b6cb717d4cc9789, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6c122a9b90fc54aac9e0fa541965e0d0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
