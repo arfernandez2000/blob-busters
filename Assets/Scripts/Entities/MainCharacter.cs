@@ -102,9 +102,10 @@ public class MainCharacter : Character
     }
 
     void OnTriggerEnter(Collider col) {
-        Debug.Log("POWERUP: " + col.gameObject.tag);
         if (col.gameObject.tag == "PowerUp") {
+            if (_health == MaxHealth) return;
             _health += 10;
+            _health = (MaxHealth - _health > 0) ? _health : MaxHealth;
             EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
         }
 
