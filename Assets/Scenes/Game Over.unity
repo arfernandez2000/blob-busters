@@ -1866,12 +1866,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1886,9 +1886,9 @@ Canvas:
   m_GameObject: {fileID: 112531968}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1062922944}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3643,6 +3643,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f9fc7ec022f09a6418b1b6f97f0c887b, type: 3}
+--- !u!1 &236967083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6080307935716506405, guid: 0ba0f6eee23032e4e83d421e739dc905, type: 3}
+  m_PrefabInstance: {fileID: 1462565359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &240470627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7207318604785504377, guid: fb3789e37ce1c456ebf26a959b65098b, type: 3}
@@ -7831,6 +7836,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f9fc7ec022f09a6418b1b6f97f0c887b, type: 3}
+--- !u!1 &457961913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2653710389412148474, guid: 11eed2dfd1329ab4db9e7f27b8e628b7, type: 3}
+  m_PrefabInstance: {fileID: 2029857871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &461410694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9037,8 +9047,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557963223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 38}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1298815391}
@@ -9046,7 +9056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -128}
+  m_AnchoredPosition: {x: -250, y: -345}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557963225
@@ -12175,6 +12185,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: caca2dfcd7da619408439605ff0667a4, type: 3}
+--- !u!1 &735028348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2669671996729381096, guid: d941199d4a58fcb45adc75ea8e37c42c, type: 3}
+  m_PrefabInstance: {fileID: 2050063084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &736437455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3182543816368764995, guid: fb3789e37ce1c456ebf26a959b65098b, type: 3}
@@ -18609,8 +18624,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064892930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 38}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 590391305}
@@ -18618,7 +18633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 120, y: -128}
+  m_AnchoredPosition: {x: 250, y: -344.99988}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1064892932
@@ -20780,6 +20795,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab578d28570d7c458ef434d72be22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
+  SmileBody: {fileID: 1965354583}
+  currentState: 2
+  animator: {fileID: 1185036310}
+  agent: {fileID: 1185036311}
+  waypoints: []
+  damType: 0
 --- !u!95 &1185036310
 Animator:
   serializedVersion: 5
@@ -24263,6 +24285,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab578d28570d7c458ef434d72be22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
+  SmileBody: {fileID: 1712734658}
+  currentState: 2
+  animator: {fileID: 1393836439}
+  agent: {fileID: 1393836440}
+  waypoints: []
+  damType: 0
 --- !u!95 &1393836439
 Animator:
   serializedVersion: 5
@@ -24357,8 +24386,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394679650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 49}
+  m_LocalScale: {x: 4, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1491584515}
@@ -24367,7 +24396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -184}
+  m_AnchoredPosition: {x: 0, y: -463}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1396060169 stripped
@@ -25843,15 +25872,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473486920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -36}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 112531972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 176}
+  m_AnchoredPosition: {x: 0, y: 378}
   m_SizeDelta: {x: 399.4216, y: 83.2683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473486922
@@ -25876,8 +25905,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Over
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d22ae7221db674b2083e83b48a517f2c, type: 2}
+  m_sharedMaterial: {fileID: 6335850215160453459, guid: d22ae7221db674b2083e83b48a517f2c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26044,6 +26073,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab578d28570d7c458ef434d72be22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
+  SmileBody: {fileID: 735028348}
+  currentState: 2
+  animator: {fileID: 1479428194}
+  agent: {fileID: 1479428195}
+  waypoints: []
+  damType: 0
 --- !u!95 &1479428194
 Animator:
   serializedVersion: 5
@@ -27390,6 +27426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab578d28570d7c458ef434d72be22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
+  SmileBody: {fileID: 236967083}
+  currentState: 2
+  animator: {fileID: 1557179866}
+  agent: {fileID: 1557179865}
+  waypoints: []
+  damType: 0
 --- !u!1 &1560902112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6376923045858009405, guid: fb3789e37ce1c456ebf26a959b65098b, type: 3}
@@ -27900,6 +27943,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: caca2dfcd7da619408439605ff0667a4, type: 3}
+--- !u!1 &1590051259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2653710389412148474, guid: 11eed2dfd1329ab4db9e7f27b8e628b7, type: 3}
+  m_PrefabInstance: {fileID: 411829629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1590216964 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1087153315573421207, guid: fb3789e37ce1c456ebf26a959b65098b, type: 3}
@@ -29281,6 +29329,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab578d28570d7c458ef434d72be22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
+  SmileBody: {fileID: 1590051259}
+  currentState: 2
+  animator: {fileID: 1641603751}
+  agent: {fileID: 1641603752}
+  waypoints: []
+  damType: 0
 --- !u!95 &1641603751
 Animator:
   serializedVersion: 5
@@ -30755,6 +30810,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: caca2dfcd7da619408439605ff0667a4, type: 3}
+--- !u!1 &1712734658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6080307935716506405, guid: 0ba0f6eee23032e4e83d421e739dc905, type: 3}
+  m_PrefabInstance: {fileID: 330008723}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1712972830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34525,6 +34585,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: caca2dfcd7da619408439605ff0667a4, type: 3}
+--- !u!1 &1965354583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3154499432908429258, guid: 72c47fdc43d84b243bdc109c284341d6, type: 3}
+  m_PrefabInstance: {fileID: 1637908456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1966167443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35646,6 +35711,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab578d28570d7c458ef434d72be22b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}
+  SmileBody: {fileID: 457961913}
+  currentState: 2
+  animator: {fileID: 2019190546}
+  agent: {fileID: 2019190547}
+  waypoints: []
+  damType: 0
 --- !u!95 &2019190546
 Animator:
   serializedVersion: 5
