@@ -13,6 +13,7 @@ public class SimpleWand : MonoBehaviour, IWand
     #region PRIVATE_PROPERTIES
     [SerializeField] private GameObject _spellPrefab;
     [SerializeField] private Transform _spellContainer;
+    [SerializeField] public float TeleportCost;
     #endregion
 
     #region UNITY_EVENTS
@@ -33,6 +34,19 @@ public class SimpleWand : MonoBehaviour, IWand
     public void Shoot() {
         GameObject bullet = Instantiate(_spellPrefab, transform.position, transform.rotation, SpellContainer);
         bullet.GetComponent<SimpleSpell>().forward = transform.parent.forward;
+    }
+    public void Teleport() {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.parent.forward, out hit, 150, 1))
+        {
+            float mana = GetComponentInParent<MainCharacter>().getMana();
+            float maxMana = GetComponentInParent<MainCharacter>().getMaxMana();
+            Debug.Log(mana);
+            Debug.Log(maxMana);
+            GetComponentInParent<MainCharacter>().setMana(mana - TeleportCost);
+            EventsManager.instance.SpellCast(mana, maxMana);
+            transform.parent.parent.position = hit.point;
+        }
     }
     #endregion
 }

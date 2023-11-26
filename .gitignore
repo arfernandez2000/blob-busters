@@ -90,6 +90,11 @@ crashlytics-build.properties
 /[Aa]ssets/AddOns
 /[Aa]ssets/TextMesh Pro.meta
 /[Aa]ssets/TextMesh Pro
+/[Aa]ssets/SkySeries Freebie/FreebieHdri
+/[Aa]ssets/SkySeries Freebie/FreebieHdri.meta
+/[Aa]ssets/SkySeries Freebie/ExampleScenes
+/[Aa]ssets/SkySeries Freebie/ExampleScenes.meta
+/[Aa]ssets/SkySeries Freebie
 /[Aa]ssets/Sounds/*
 
 # Mac files

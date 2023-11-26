@@ -18,17 +18,31 @@ public class MenusManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void StartGame() {
-        StartCoroutine("AsyncStart");
+    public void StartEasyMode() {
+        StartCoroutine("AsyncStartEasyMode");
+    }
+
+    public void StartHardMode() {
+        StartCoroutine("AsyncStartHardMode");
     }
 
     public void MainMenuLoad() {
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
-    public IEnumerator AsyncStart() {
+    public IEnumerator AsyncStartEasyMode() {
         ui_load.SetActive(true);
         AsyncOperation loading = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+
+        while(!loading.isDone){
+            loading_bar.fillAmount = loading.progress;
+            yield return null;
+        }
+    }
+
+    public IEnumerator AsyncStartHardMode() {
+        ui_load.SetActive(true);
+        AsyncOperation loading = SceneManager.LoadSceneAsync(4, LoadSceneMode.Single);
 
         while(!loading.isDone){
             loading_bar.fillAmount = loading.progress;

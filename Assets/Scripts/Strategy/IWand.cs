@@ -7,4 +7,5 @@ public interface IWand
     GameObject SpellPrefab { get; }
     Transform SpellContainer { get; }
     void Shoot();
+    void Teleport();
 }

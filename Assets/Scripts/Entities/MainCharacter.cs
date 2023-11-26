@@ -9,8 +9,8 @@ public class MainCharacter : Character
 {
 
     #region PRIVATE_PROPERTIES
-    private float _mana = 100;
-    private float maxMana = 100;
+    public float _mana = 100;
+    public float maxMana = 100;
     private float manaRestoreInterval = 1;
     private float manaRestoreRate = 5;
     private float _mouseSensitivity;
@@ -27,6 +27,7 @@ public class MainCharacter : Character
     #region KEY_BINDINGS
 
     [SerializeField] private KeyCode _attack = KeyCode.Mouse0;
+    [SerializeField] private KeyCode _teleport = KeyCode.Mouse1;
     [SerializeField] private KeyCode _jump = KeyCode.Space;
     [SerializeField] private CharacterController controller;
     [SerializeField] private SimpleWand _wand;
@@ -40,11 +41,13 @@ public class MainCharacter : Character
     private CmdMovement _cmdMovement;
     private CmdJump _cmdJump;
     private CmdShoot _cmdShoot;
+    private CmdTeleport _cmdTeleport;
 
     private void InitMovementCommands() {
         _cmdMovement = new CmdMovement(transform, controller, MovementSpeed);
         _cmdJump = new CmdJump(controller, _jump, JumpHeight);
         _cmdShoot = new CmdShoot(_wand);
+        _cmdTeleport = new CmdTeleport(_wand);
     }
 
     #endregion
@@ -63,6 +66,13 @@ public class MainCharacter : Character
             EventsManager.instance.SpellCast(_mana, maxMana);
         }
     }
+
+    public float getMana() => _mana;
+    public void setMana(float mana) {
+        _mana = mana;
+    }
+
+    public float getMaxMana() => maxMana;
 
     #region UNITY_EVENTS
  
@@ -91,7 +101,13 @@ public class MainCharacter : Character
                 timeOfLastShot = Time.time;
             } 
         }
-        
+        float teleportManaCost = _wand.TeleportCost;
+        if (Input.GetKeyDown(_teleport)) {
+            if (_mana > teleportManaCost && Time.time - timeOfLastShot >= timeBtwShots) {
+                EventQueueManager.instance.AddCommand(_cmdTeleport);
+                timeOfLastShot = Time.time;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision col) {
