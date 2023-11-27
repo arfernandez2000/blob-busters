@@ -96,18 +96,45 @@ public class MainCharacter : Character
         if (Input.GetKeyDown(_attack)) {
             if (_mana > spellDamage && Time.time - timeOfLastShot >= timeBtwShots) {
                 _mana -= spellDamage;
+                _wand.spellAnimator.SetTrigger("SimpleShoot");
                 EventQueueManager.instance.AddCommand(_cmdShoot);
                 EventsManager.instance.SpellCast(_mana, maxMana);
                 timeOfLastShot = Time.time;
             } 
         }
+        if(Input.GetMouseButton(1)){
+            RaycastHit hit = new RaycastHit();
+            if (_wand.aimTeleport(out hit)) {
+                GameObject lightCursor = GameObject.Find("/Teleport Cursor");
+                Debug.Log(lightCursor);
+                if (lightCursor == null) {
+                    lightCursor = new GameObject("Teleport Cursor");
+                    Light lightComp = lightCursor.AddComponent<Light>();
+                    lightComp.intensity = 2;
+                }
+                Vector3 hitPosition = hit.point;
+                hitPosition.y += 3;
+                lightCursor.transform.position = hitPosition;
+            } else {
+                GameObject lightCursor = GameObject.Find("/Teleport Cursor");
+                Destroy(lightCursor);
+            }
+        }
         float teleportManaCost = _wand.TeleportCost;
-        if (Input.GetKeyDown(_teleport)) {
+        if (Input.GetMouseButtonUp(1)) {
             if (_mana > teleportManaCost && Time.time - timeOfLastShot >= timeBtwShots) {
                 EventQueueManager.instance.AddCommand(_cmdTeleport);
+                _wand.spellAnimator.SetTrigger("Teleport");
                 timeOfLastShot = Time.time;
             }
         }
+        // if (Input.GetKeyDown(_teleport)) {
+        //     if (_mana > teleportManaCost && Time.time - timeOfLastShot >= timeBtwShots) {
+        //         EventQueueManager.instance.AddCommand(_cmdTeleport);
+        //         _wand.spellAnimator.SetTrigger("Teleport");
+        //         timeOfLastShot = Time.time;
+        //     }
+        // }
     }
 
     void OnCollisionEnter(Collision col) {
