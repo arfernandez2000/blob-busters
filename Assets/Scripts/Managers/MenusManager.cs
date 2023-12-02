@@ -25,6 +25,10 @@ public class MenusManager : MonoBehaviour
     public void StartHardMode() {
         StartCoroutine("AsyncStartHardMode");
     }
+    
+    public void StartSurvival() {
+        StartCoroutine("AsyncStartSurvival");
+    }
 
     public void MainMenuLoad() {
         SceneManager.LoadScene(0, LoadSceneMode.Single);
@@ -43,6 +47,16 @@ public class MenusManager : MonoBehaviour
     public IEnumerator AsyncStartHardMode() {
         ui_load.SetActive(true);
         AsyncOperation loading = SceneManager.LoadSceneAsync(4, LoadSceneMode.Single);
+
+        while(!loading.isDone){
+            loading_bar.fillAmount = loading.progress;
+            yield return null;
+        }
+    }
+
+    public IEnumerator AsyncStartSurvival() {
+        ui_load.SetActive(true);
+        AsyncOperation loading = SceneManager.LoadSceneAsync(5, LoadSceneMode.Single);
 
         while(!loading.isDone){
             loading_bar.fillAmount = loading.progress;

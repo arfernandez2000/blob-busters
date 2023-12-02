@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HardLevel.unity
     guid: 9d3f0223370da4560bb6fb1f8bff2d40
+  - enabled: 1
+    path: Assets/Scenes/Survival.unity
+    guid: 2ae00365c2167496bb69c2ba31204488
   m_configObjects: {}
