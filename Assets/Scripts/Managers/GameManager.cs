@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _isGameOver = false;
     [SerializeField] private bool _isVictory = false;
+    [SerializeField] private GameObject _blob;
+    [SerializeField] private GameObject _coin;
     // [SerializeField] private Text _gameOverMessage;
 
     #region UNITY_EVENTS
@@ -14,6 +16,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         EventsManager.instance.OnGameOver += OnGameOver;
+
+        InvokeRepeating("InstantiateNewBlob", 3.0f, 3.0f);
+        InvokeRepeating("InstantiateNewCoin", 3.0f, 3.0f);
     }
     #endregion
 
@@ -26,4 +31,47 @@ public class GameManager : MonoBehaviour
 
     }
     #endregion
+
+    private void InstantiateNewBlob() {
+        Terrain terrain = FindObjectOfType<Terrain>();
+        
+        float xMin = terrain.transform.position.x;
+        float zMin = terrain.transform.position.z;
+
+        float xMax = xMin + terrain.terrainData.size.x;
+        float zMax = xMin + terrain.terrainData.size.z;
+
+        Vector3 randomPos = new Vector3(
+            Random.Range(xMin,xMax),
+            0,
+            Random.Range(zMin,zMax)
+        );
+
+        float heightOffset = 2;
+        randomPos.y = Terrain.activeTerrain.SampleHeight(randomPos) + heightOffset;
+
+        GameObject newBlob = Instantiate(_blob, randomPos, Quaternion.identity);
+    }
+
+    private void InstantiateNewCoin() {
+        Terrain terrain = FindObjectOfType<Terrain>();
+        
+        float xMin = terrain.transform.position.x;
+        float zMin = terrain.transform.position.z;
+
+        float xMax = xMin + terrain.terrainData.size.x;
+        float zMax = xMin + terrain.terrainData.size.z;
+
+        Vector3 randomPos = new Vector3(
+            Random.Range(xMin,xMax),
+            0,
+            Random.Range(zMin,zMax)
+        );
+
+        float heightOffset = 2;
+        randomPos.y = Terrain.activeTerrain.SampleHeight(randomPos) + heightOffset;
+
+        GameObject newBlob = Instantiate(_coin, randomPos, Quaternion.identity);
+    }
+
 }

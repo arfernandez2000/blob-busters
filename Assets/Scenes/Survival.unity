@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 9381898a9a92e407aa231ccd8a7dda34, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9d26041df313f445ea5c6f6467000547, type: 2}
 --- !u!1001 &27598699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2758,6 +2758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGameOver: 0
   _isVictory: 0
+  _blob: {fileID: 4870764533264140036, guid: d0935360096884386acce551b3a8367c, type: 3}
+  _coin: {fileID: 2508848207383441170, guid: 5add61fa64ff447be87044967d8ba566, type: 3}
 --- !u!4 &1304197719
 Transform:
   m_ObjectHideFlags: 0
