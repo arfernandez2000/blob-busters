@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BlobStats
   m_EditorClassIdentifier: 
   _stats:
-    _maxHealth: 50
+    _maxHealth: 80
   _enemyStats:
-    _damage: 10
+    _damage: 30

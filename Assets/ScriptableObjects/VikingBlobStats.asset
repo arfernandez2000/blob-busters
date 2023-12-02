@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: VikingBlobStats
   m_EditorClassIdentifier: 
   _stats:
-    _maxHealth: 100
+    _maxHealth: 150
   _enemyStats:
-    _damage: 20
+    _damage: 40

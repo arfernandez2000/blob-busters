@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 97ec84bf2e0984b0db7a7bd3f80ed972, type: 2}
-  _health: 50
+  _health: 200
   _enemyStats: {fileID: 11400000, guid: 97ec84bf2e0984b0db7a7bd3f80ed972, type: 2}
   SkinnedMeshRenderer: {fileID: 5779051475225398517}
   faces: {fileID: 11400000, guid: dff7f89861006486186611662d132fe4, type: 2}

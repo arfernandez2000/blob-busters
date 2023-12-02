@@ -122,6 +122,9 @@ public class MainCharacter : Character
         }
         float teleportManaCost = _wand.TeleportCost;
         if (Input.GetMouseButtonUp(1)) {
+            GameObject lightCursor = GameObject.Find("/Teleport Cursor");
+            if (lightCursor != null)
+                Destroy(lightCursor);
             if (_mana > teleportManaCost && Time.time - timeOfLastShot >= timeBtwShots) {
                 EventQueueManager.instance.AddCommand(_cmdTeleport);
                 _wand.spellAnimator.SetTrigger("Teleport");
