@@ -238,6 +238,7 @@ public class Blob : Character
     }
 
     public override void Die() {
+        StatsManager.instance.addEnemyKill();
         currentState = SlimeAnimationState.Dying;
         animator.enabled = false;
         Destroy(gameObject, 2.5f);

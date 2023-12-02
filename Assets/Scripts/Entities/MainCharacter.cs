@@ -143,6 +143,7 @@ public class MainCharacter : Character
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage));
+            StatsManager.instance.addHitsTaken();
             EventsManager.instance.SoundEffect(audioSource.clip);
         }
     }
@@ -153,6 +154,7 @@ public class MainCharacter : Character
             _health += 10;
             _health = (MaxHealth - _health > 0) ? _health : MaxHealth;
             EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
+            StatsManager.instance.addCoinsPicked();
         }
 
         if (col.gameObject.tag == "EndGame") {

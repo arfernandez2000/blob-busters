@@ -33,10 +33,15 @@ public class EventsManager : MonoBehaviour
 
     #region UI_ELEMENTS
     public event Action<float, float> OnCharacterLifeChange;
+    public event Action<int> OnKillCountChange;
     public event Action<float, float> OnSpellCast;
 
     public void CharacterLifeChange(float currentLife, float maxLife) {
         OnCharacterLifeChange?.Invoke(currentLife, maxLife);
+    }
+
+    public void KillCountChange(int killCount) {
+        OnKillCountChange?.Invoke(killCount);
     }
 
     public void SpellCast(float currentMana, float maxMana) {
@@ -48,7 +53,6 @@ public class EventsManager : MonoBehaviour
     public event Action<AudioClip> OnSoundEffect;
 
     public void SoundEffect(AudioClip audio) {
-        Debug.Log("Entro al coin sound effect del event manager");
         if(OnSoundEffect != null)
             OnSoundEffect(audio);
         else

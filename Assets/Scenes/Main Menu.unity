@@ -35410,7 +35410,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1929686242}
         m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
-        m_MethodName: StartHardMode
+        m_MethodName: StartSurvival
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
