@@ -34,6 +34,14 @@ public class MenusManager : MonoBehaviour
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
+    public void RankingLoad() {
+        SceneManager.LoadScene(6, LoadSceneMode.Single);
+    }
+
+    public void SubmitNameLoad() {
+        SceneManager.LoadScene(7, LoadSceneMode.Single);
+    }
+
     public IEnumerator AsyncStartEasyMode() {
         ui_load.SetActive(true);
         AsyncOperation loading = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
@@ -56,6 +64,7 @@ public class MenusManager : MonoBehaviour
 
     public IEnumerator AsyncStartSurvival() {
         ui_load.SetActive(true);
+        StatsManager.instance.setStartTime();
         AsyncOperation loading = SceneManager.LoadSceneAsync(5, LoadSceneMode.Single);
 
         while(!loading.isDone){

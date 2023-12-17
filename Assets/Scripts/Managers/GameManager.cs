@@ -27,7 +27,15 @@ public class GameManager : MonoBehaviour
         _isGameOver = true;
         _isVictory = isVictory;
 
-        SceneManager.LoadScene(_isVictory? 2:3, LoadSceneMode.Single);
+        // If active scene is Survival, log
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("CURRENT SCENE NAME: " + currentSceneName);
+        if (currentSceneName == "Survival") {
+            StatsManager.instance.setEndTime();
+            SceneManager.LoadScene(7, LoadSceneMode.Single);
+        } else {
+            SceneManager.LoadScene(_isVictory? 2:3, LoadSceneMode.Single);
+        }
 
     }
     #endregion
