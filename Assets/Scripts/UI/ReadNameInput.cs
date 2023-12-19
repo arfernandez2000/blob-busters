@@ -21,7 +21,7 @@ public class ReadNameInput : MonoBehaviour
             string score = StatsManager.instance.getSurvivalGameTime();
             Debug.Log($"Score: {score}");
             StatsManager.instance.db.AddRankingRecord(new RankingModel(0, playerName, score));
-            SceneManager.LoadScene(6, LoadSceneMode.Single);
+            SceneManager.LoadScene(5, LoadSceneMode.Single);
         }
         
     }

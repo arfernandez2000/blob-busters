@@ -7636,6 +7636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGameOver: 0
   _isVictory: 0
+  _blob: {fileID: 4870764533264140036, guid: d0935360096884386acce551b3a8367c, type: 3}
+  _coin: {fileID: 2508848207383441170, guid: 5add61fa64ff447be87044967d8ba566, type: 3}
 --- !u!4 &1304197719
 Transform:
   m_ObjectHideFlags: 0
@@ -7665,6 +7667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifebar: {fileID: 333537094}
   _manaBar: {fileID: 1437207589}
+  _killCount: {fileID: 0}
 --- !u!114 &1304197721
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,11 +35,11 @@ public class MenusManager : MonoBehaviour
     }
 
     public void RankingLoad() {
-        SceneManager.LoadScene(6, LoadSceneMode.Single);
+        SceneManager.LoadScene(5, LoadSceneMode.Single);
     }
 
     public void SubmitNameLoad() {
-        SceneManager.LoadScene(7, LoadSceneMode.Single);
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
     }
 
     public IEnumerator AsyncStartEasyMode() {
@@ -54,7 +54,7 @@ public class MenusManager : MonoBehaviour
 
     public IEnumerator AsyncStartHardMode() {
         ui_load.SetActive(true);
-        AsyncOperation loading = SceneManager.LoadSceneAsync(4, LoadSceneMode.Single);
+        AsyncOperation loading = SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
 
         while(!loading.isDone){
             loading_bar.fillAmount = loading.progress;
@@ -65,7 +65,7 @@ public class MenusManager : MonoBehaviour
     public IEnumerator AsyncStartSurvival() {
         ui_load.SetActive(true);
         StatsManager.instance.setStartTime();
-        AsyncOperation loading = SceneManager.LoadSceneAsync(5, LoadSceneMode.Single);
+        AsyncOperation loading = SceneManager.LoadSceneAsync(3, LoadSceneMode.Single);
 
         while(!loading.isDone){
             loading_bar.fillAmount = loading.progress;

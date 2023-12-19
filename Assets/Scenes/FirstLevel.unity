@@ -2226,6 +2226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGameOver: 0
   _isVictory: 0
+  _blob: {fileID: 4870764533264140036, guid: d0935360096884386acce551b3a8367c, type: 3}
+  _coin: {fileID: 2508848207383441170, guid: 5add61fa64ff447be87044967d8ba566, type: 3}
 --- !u!4 &1304197719
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,6 +2257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifebar: {fileID: 333537094}
   _manaBar: {fileID: 1437207589}
+  _killCount: {fileID: 0}
 --- !u!114 &1304197721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4251,6 +4254,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2567386368786763765, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
+      propertyPath: TeleportCost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567386368786763765, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
       propertyPath: _spellContainer
       value: 
       objectReference: {fileID: 557512376}
@@ -4309,8 +4316,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8315428264910815535, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8904534599490835386}
   m_SourcePrefab: {fileID: 100100000, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
+--- !u!1 &8904534599490835385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8315428264910815535, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
+  m_PrefabInstance: {fileID: 8904534599490835384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8904534599490835386
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904534599490835385}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a353726948b49b99f3dc6227fe0e52, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

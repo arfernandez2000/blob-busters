@@ -32,9 +32,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("CURRENT SCENE NAME: " + currentSceneName);
         if (currentSceneName == "Survival") {
             StatsManager.instance.setEndTime();
-            SceneManager.LoadScene(7, LoadSceneMode.Single);
+            SceneManager.LoadScene(4, LoadSceneMode.Single);
         } else {
-            SceneManager.LoadScene(_isVictory? 2:3, LoadSceneMode.Single);
+            SceneManager.LoadScene(_isVictory? 6:7, LoadSceneMode.Single);
         }
 
     }
