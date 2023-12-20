@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
 
         // If active scene is Survival, log
         string currentSceneName = SceneManager.GetActiveScene().name;
-        Debug.Log("CURRENT SCENE NAME: " + currentSceneName);
         if (currentSceneName == "Survival") {
             StatsManager.instance.setEndTime();
             SceneManager.LoadScene(4, LoadSceneMode.Single);

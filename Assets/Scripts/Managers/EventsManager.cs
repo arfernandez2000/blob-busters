@@ -10,9 +10,7 @@ public class EventsManager : MonoBehaviour
     #region UNITY_EVENTS
 
     private void Awake() {
-        Debug.Log("EVENT MANAGER!!!!");
         if (instance != null) {
-            Debug.Log("DESTROYING EVENT MANAGER");
             Destroy(this);
         }
         instance = this;
