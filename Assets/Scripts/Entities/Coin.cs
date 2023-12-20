@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
             EventsManager.instance.SoundEffect(audioSource.clip);
             _meshRenderer.enabled = false;
             transform.gameObject.GetComponent<Collider>().enabled = false;
-            Destroy(gameObject, audioSource.clip.length);
+            Destroy(gameObject);
         }
     }
     #endregion
