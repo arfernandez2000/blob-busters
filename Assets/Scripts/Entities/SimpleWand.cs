@@ -8,12 +8,18 @@ public class SimpleWand : MonoBehaviour, IWand
     public GameObject SpellPrefab => _spellPrefab;
     public Animator spellAnimator;
     public Transform SpellContainer => _spellContainer;
+    public GameObject TeleportParticles => _teleportParticles;
+    public RaycastHit hit;
+    public GameObject teleportParticles;
+
     #endregion
 
     #region PRIVATE_PROPERTIES
     [SerializeField] private GameObject _spellPrefab;
     [SerializeField] private Transform _spellContainer;
     [SerializeField] public float TeleportCost;
+
+    [SerializeField] public GameObject _teleportParticles;
     #endregion
 
     #region UNITY_EVENTS
@@ -37,17 +43,21 @@ public class SimpleWand : MonoBehaviour, IWand
     }
 
     public void Teleport() {
-
-        RaycastHit hit = new RaycastHit();
-        if (aimTeleport(out hit))
-        {
+        hit = new RaycastHit();
+        if (aimTeleport(out hit)) {
             Debug.Log(hit.point);
             float mana = GetComponentInParent<MainCharacter>().getMana();
             float maxMana = GetComponentInParent<MainCharacter>().getMaxMana();
             GetComponentInParent<MainCharacter>().setMana(mana - TeleportCost);
             EventsManager.instance.SpellCast(mana, maxMana);
-            transform.parent.parent.position = hit.point;
+            Invoke("ExecuteTeleport", 2.0f);
+            teleportParticles = Instantiate(_teleportParticles, hit.point, Quaternion.identity);
         }
+    }
+
+    public void ExecuteTeleport() {
+        transform.parent.parent.position = hit.point;
+        Destroy(teleportParticles);
     }
 
     public bool aimTeleport(out RaycastHit hit) {
