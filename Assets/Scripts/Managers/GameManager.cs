@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     {
         EventsManager.instance.OnGameOver += OnGameOver;
 
-        InvokeRepeating("InstantiateNewBlob", 3.0f, 3.0f);
-        InvokeRepeating("InstantiateNewCoin", 3.0f, 3.0f);
+        InvokeRepeating("InstantiateNewBlob", 3.0f, 4.0f);
+        InvokeRepeating("InstantiateNewCoin", 3.0f, 4.0f);
     }
     #endregion
 
@@ -42,11 +42,13 @@ public class GameManager : MonoBehaviour
     private void InstantiateNewBlob() {
         Terrain terrain = FindObjectOfType<Terrain>();
         
-        float xMin = terrain.transform.position.x;
-        float zMin = terrain.transform.position.z;
+        float margin = 80f;
 
-        float xMax = xMin + terrain.terrainData.size.x;
-        float zMax = xMin + terrain.terrainData.size.z;
+        float xMin = terrain.transform.position.x + margin;
+        float zMin = terrain.transform.position.z + margin;
+
+        float xMax = xMin + terrain.terrainData.size.x - 2 * margin;
+        float zMax = zMin + terrain.terrainData.size.z - 2 * margin;
 
         Vector3 randomPos = new Vector3(
             Random.Range(xMin,xMax),
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
             Random.Range(zMin,zMax)
         );
 
-        float heightOffset = 2;
+        float heightOffset = 4;
         randomPos.y = Terrain.activeTerrain.SampleHeight(randomPos) + heightOffset;
 
         GameObject newBlob = Instantiate(_blob, randomPos, Quaternion.identity);
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
         float zMin = terrain.transform.position.z;
 
         float xMax = xMin + terrain.terrainData.size.x;
-        float zMax = xMin + terrain.terrainData.size.z;
+        float zMax = zMin + terrain.terrainData.size.z;
 
         Vector3 randomPos = new Vector3(
             Random.Range(xMin,xMax),

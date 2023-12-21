@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 // using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class MainCharacter : Character
 {
@@ -143,18 +144,24 @@ public class MainCharacter : Character
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == "Enemy") {
             EventQueueManager.instance.AddCommand(new CmdApplyDamage(this, col.gameObject.GetComponent<Blob>().Damage));
-            StatsManager.instance.addHitsTaken();
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            if (currentSceneName == "Survival") {
+                StatsManager.instance.addHitsTaken();
+            }
             EventsManager.instance.SoundEffect(audioSource.clip);
         }
     }
 
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "PowerUp") {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            if (currentSceneName == "Survival") {
+                StatsManager.instance.addCoinsPicked();
+            }
             if (_health == MaxHealth) return;
             _health += 10;
             _health = (MaxHealth - _health > 0) ? _health : MaxHealth;
             EventsManager.instance.CharacterLifeChange(_health, MaxHealth);
-            StatsManager.instance.addCoinsPicked();
         }
 
         if (col.gameObject.tag == "EndGame") {

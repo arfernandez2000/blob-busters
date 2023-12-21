@@ -6,6 +6,9 @@ using UnityEngine;
 public class StatsManager : MonoBehaviour
 {
     public static StatsManager instance;
+    public int EnemyKills => enemyKills;
+    public int CoinsPicked => coinsPicked;
+    public int HitsTaken => hitsTaken;
 
     private static int enemyKills = 0;
     private static int coinsPicked = 0;
@@ -26,14 +29,17 @@ public class StatsManager : MonoBehaviour
     public void addEnemyKill() {
         enemyKills++;
         EventsManager.instance.KillCountChange(enemyKills);
+        Debug.Log("Kill: " + enemyKills);
     }
 
     public void addCoinsPicked() {
         coinsPicked++;
+        Debug.Log("Coins Picked: " + coinsPicked);
     }
 
     public void addHitsTaken() {
         hitsTaken++;
+        Debug.Log("Hits Taken: " + hitsTaken);
     }
 
     public void setStartTime() {
@@ -47,6 +53,12 @@ public class StatsManager : MonoBehaviour
     public string getSurvivalGameTime() {
         TimeSpan timeSpent = endTime - startTime;
         return string.Format("{0:00}:{1:00}:{2:00}", timeSpent.Hours, timeSpent.Minutes, timeSpent.Seconds);
+    }
+
+    public void resetStats() {
+        enemyKills = 0;
+        coinsPicked = 0;
+        hitsTaken = 0;
     }
 
     private void Start() {

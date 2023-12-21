@@ -22,7 +22,7 @@ public class UIElementsManager : MonoBehaviour
         Debug.Log(_lifebar.fillAmount);
     }
     private void OnKillCountChange(int killCount) {
-        Debug.Log(killCount);
+        Debug.Log("kill count: " + killCount);
         _killCount.text = killCount.ToString();
     }
 

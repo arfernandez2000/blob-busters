@@ -15,7 +15,7 @@ public class ReadNameInput : MonoBehaviour
 
     public void GetInputOnClickHandler() {
         string playerName = _inputField.text;
-        if (string.IsNullOrEmpty(playerName) || playerName == "Name") {
+        if (string.IsNullOrEmpty(playerName) || playerName == "Enter Your Name...") {
             Debug.Log("Player name is empty");
         } else {
             string score = StatsManager.instance.getSurvivalGameTime();

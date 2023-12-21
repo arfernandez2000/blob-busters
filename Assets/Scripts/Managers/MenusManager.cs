@@ -65,6 +65,7 @@ public class MenusManager : MonoBehaviour
     public IEnumerator AsyncStartSurvival() {
         ui_load.SetActive(true);
         StatsManager.instance.setStartTime();
+        StatsManager.instance.resetStats();
         AsyncOperation loading = SceneManager.LoadSceneAsync(3, LoadSceneMode.Single);
 
         while(!loading.isDone){

@@ -1,7 +1,9 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 //using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public enum SlimeAnimationState { Idle,Walk,Jump,Attack,Damage,Follow,Dying }
@@ -104,8 +106,11 @@ public class Blob : Character
             case SlimeAnimationState.Walk:
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk")) return;
-
-                agent.isStopped = false;
+                try {
+                    agent.isStopped = false;
+                } catch (Exception e) {
+                    Destroy(gameObject);
+                }
                 agent.updateRotation = true;
 
                 if (Vector3.Distance(transform.position, mainCharacter.position) < 15f) {
@@ -238,7 +243,10 @@ public class Blob : Character
     }
 
     public override void Die() {
-        StatsManager.instance.addEnemyKill();
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Survival") {
+            StatsManager.instance.addEnemyKill();
+        }
         currentState = SlimeAnimationState.Dying;
         animator.enabled = false;
         Destroy(gameObject, 2.5f);
