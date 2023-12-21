@@ -1411,7 +1411,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -0.07330692}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -4488,6 +4488,10 @@ PrefabInstance:
       propertyPath: _spellContainer
       value: 
       objectReference: {fileID: 557512376}
+    - target: {fileID: 2567386368786763765, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
+      propertyPath: _teleportParticles
+      value: 
+      objectReference: {fileID: 4640020976438559514, guid: 4ea59529d3c2c4156998dcb483bd92fb, type: 3}
     - target: {fileID: 3034637659678168574, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9454449
