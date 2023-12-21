@@ -57,7 +57,7 @@ public class SimpleWand : MonoBehaviour, IWand
 
     public void ExecuteTeleport() {
         transform.parent.parent.position = hit.point;
-        Destroy(teleportParticles);
+        Destroy(teleportParticles, 2.0f);
     }
 
     public bool aimTeleport(out RaycastHit hit) {
