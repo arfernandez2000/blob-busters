@@ -4265,6 +4265,10 @@ PrefabInstance:
       propertyPath: teleportParticles
       value: 
       objectReference: {fileID: 4640020976438559514, guid: 4ea59529d3c2c4156998dcb483bd92fb, type: 3}
+    - target: {fileID: 2567386368786763765, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
+      propertyPath: _teleportParticles
+      value: 
+      objectReference: {fileID: 4640020976438559514, guid: 4ea59529d3c2c4156998dcb483bd92fb, type: 3}
     - target: {fileID: 3370098159080105560, guid: 30d528af4866545edbf96d15d84fb9d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60.9

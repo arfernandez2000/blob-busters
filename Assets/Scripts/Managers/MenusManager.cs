@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class MenusManager : MonoBehaviour
 {
-    public GameObject ui_load;
-    public Image loading_bar;
+    [SerializeField] public GameObject ui_load;
+    [SerializeField] public Image loading_bar;
+    [SerializeField] public GameObject help_menu;
 
     public void Start() {
         Cursor.lockState = CursorLockMode.None;
@@ -28,6 +29,14 @@ public class MenusManager : MonoBehaviour
     
     public void StartSurvival() {
         StartCoroutine("AsyncStartSurvival");
+    }
+
+    public void ShowHelp() {
+        help_menu.SetActive(true);
+    }
+
+    public void HideHelp() {
+        help_menu.SetActive(false);
     }
 
     public void MainMenuLoad() {
